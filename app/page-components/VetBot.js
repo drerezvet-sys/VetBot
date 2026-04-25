@@ -532,19 +532,19 @@ export default function VetBot() {
             </div>
           )}
 
-          <div style={{ background:C.white, borderTop:`2px solid ${C.sand}`, padding:"12px 0 18px", display:"flex", gap:9, alignItems:"flex-end" }}>
-            <button onClick={() => sendMsg()} disabled={loading || !input.trim()}
-  style={{ width:46, height:46, borderRadius:"50%", border:"none", background: loading || !input.trim() ? C.sand : C.forest, cursor: loading || !input.trim() ? "not-allowed" : "pointer", flexShrink:0, boxShadow:`0 3px 12px ${C.forest}30`, transition:"all 0.2s", display:"flex", alignItems:"center", justifyContent:"center" }}>
-  <svg viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-</button>
-            <textarea ref={inputRef} value={input} onChange={e => setInput(e.target.value)}
-              onKeyDown={e => { if(e.key==="Enter" && !e.shiftKey){ e.preventDefault(); sendMsg(); } }}
-              placeholder={`תאר את הסימפטומים של ${petName || (pet === "אחר" ? (otherPet.trim() || "חיית המחמד") : pet === "כלב" ? "הכלב" : "החתול")}...`}
-              rows={2}
-              style={{ flex:1, padding:"11px 14px", borderRadius:16, border:`2px solid ${C.sand}`, background:C.cream, fontSize:14.5, color:C.charcoal, resize:"none", lineHeight:1.55, textAlign:"right", direction:"rtl", fontFamily:"'Segoe UI', Tahoma, sans-serif", transition:"border-color 0.2s" }}
-              onFocus={e=>e.target.style.borderColor=C.forest} onBlur={e=>e.target.style.borderColor=C.sand}
-            />
-          </div>
+         <div style={{ background:C.white, borderTop:`2px solid ${C.sand}`, padding:"12px 0 18px", display:"flex", gap:9, alignItems:"flex-end" }}>
+  <textarea ref={inputRef} value={input} onChange={e => setInput(e.target.value)}
+    onKeyDown={e => { if(e.key==="Enter" && !e.shiftKey){ e.preventDefault(); sendMsg(); } }}
+    placeholder={`תאר את הסימפטומים של ${petName || (pet === "אחר" ? (otherPet.trim() || "חיית המחמד") : pet === "כלב" ? "הכלב" : "החתול")}...`}
+    rows={2}
+    style={{ flex:1, padding:"11px 14px", borderRadius:16, border:`2px solid ${C.sand}`, background:C.cream, fontSize:14.5, color:C.charcoal, resize:"none", lineHeight:1.55, textAlign:"right", direction:"rtl", fontFamily:"'Segoe UI', Tahoma, sans-serif", transition:"border-color 0.2s" }}
+    onFocus={e=>e.target.style.borderColor=C.forest} onBlur={e=>e.target.style.borderColor=C.sand}
+  />
+  <button onClick={() => sendMsg()} disabled={loading || !input.trim()}
+    style={{ width:46, height:46, borderRadius:"50%", border:"none", background: loading || !input.trim() ? C.sand : C.forest, cursor: loading || !input.trim() ? "not-allowed" : "pointer", flexShrink:0, boxShadow:`0 3px 12px ${C.forest}30`, transition:"all 0.2s", display:"flex", alignItems:"center", justifyContent:"center" }}>
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+  </button>
+</div>
         </div>
       )}
     </div>
