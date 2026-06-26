@@ -221,7 +221,7 @@ export default function VetBot() {
     }));
     try {
       const res=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({
-        model:"claude-sonnet-4-6",max_tokens:1000,system:SYSTEM_PROMPT,messages:apiMsgs,
+        model:process.env.NEXT_PUBLIC_MODEL||"claude-sonnet-4-6",max_tokens:1000,system:SYSTEM_PROMPT,messages:apiMsgs,
       })});
       const data=await res.json();
       const raw=data.content?.[0]?.text||"מצטער, לא הצלחתי לעבד את הבקשה. נסה שוב.";
